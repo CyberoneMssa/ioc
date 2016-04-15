@@ -86,3 +86,48 @@ rule Operation_D2_malware03
     condition:
         all of them
 }
+
+rule Operation_D2_malware04
+{
+    meta:
+        description = "Operation Double Dragon Malware_unpack - V3PScan.exe"
+        author = "Sungmin Lim"
+        date = "11-Apr-16"
+        filetype = "DLL"
+        hash = "a4585b0a81e30f2a7238e254db561cc6"
+        imphash= "a8fa1d8c0afb0f5cb663c31b2f78d417"
+
+   strings:
+       $s1 = "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0" wide ascii
+       $s2 = "%s\\shell\\open\\command" wide ascii
+       $s3 = "\\cmd.exe" wide ascii
+       $s4 = "210.101.199.241:443" wide ascii
+       $s5 = "WinSta0\\Default" wide ascii
+       $s6 = "Winlogon" wide ascii
+   
+   condition:
+        all of them
+}
+
+rule Operation_D2_malware05
+{
+    meta:
+        description = "Operation Double Dragon Malware_unpack - tserver"
+        author = "Sungmin Lim"
+        date = "11-Apr-16"
+        filetype = "DLL"
+        hash = "996f4b7f117b4f6560910a0807697fb7"
+        imphash= "a8fa1d8c0afb0f5cb663c31b2f78d417"
+
+   strings:
+       $s1 = "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0" wide ascii
+       $s2 = "%s\\shell\\open\\command" wide ascii
+       $s3 = "\\cmd.exe" wide ascii
+       $s4 = "203.250.148.63:443" wide ascii
+       $s5 = "WinSta0\\Default" wide ascii
+       $s6 = "Winlogon" wide ascii
+
+
+   condition:
+        all of them
+}
